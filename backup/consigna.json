@@ -1,0 +1,24 @@
+Instalar  estas versiones 
+La version que funcione 
+Visual estudio https://developer.android.com/studio/?hl=es-419
+Ionic  https://ionicframework.com/
+Firebase https://firebase.google.com/?hl=es-419
+
+Tratar de instalar una aplicacion para como funciona .
+
+5 aplicaciones completas con 5 logins distintos  , los sacas de la base a la 
+
+email , contraseña aceptar , cancelar , no requiere conectarse a nada 
+el problema es que vamos a tener es que 5 aplicaciones distintas tendran que tener 5 aplicacione pero no lo toma 
+la semana siguiente da las aplicaciones que esten en el mismo dispositivo que tengan un login cada una con la estica distinta .
+
+
+Estrutura 
+Tiene una pagina por default 
+
+se puede servir y verlo online como una app , pero en para usar el resto se tiene que compilar instalarlo y levantarlo en el cel .
+
+Al momento de compilar es importante definir el id distinto ( usar un dominio o  elnombre de github para que tenga alguna valor)
+
+
+ Mi  cel teoricamente 720 x 1280 pixels.

@@ -12,10 +12,16 @@ export class LoginPage implements OnInit {
 
   email: string;
   password: string;
+  usersDefault:Array; 
 
   constructor(private authservice: AuthService, public router: Router) {
-      this.email = defaultUser.email;
-      this.password = defaultUser.password;
+  }
+
+  onAccesoRapidoAccess( userSelected:Object )
+  {
+      this.email = userSelected.email;
+      this.password = userSelected.password;
+      this.usersDefault = defaultUser;
   }
 
   ngOnInit() {

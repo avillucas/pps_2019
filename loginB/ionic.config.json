@@ -1,0 +1,8 @@
+{
+  "name": "loginA",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

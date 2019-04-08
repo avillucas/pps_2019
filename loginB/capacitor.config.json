@@ -1,0 +1,6 @@
+{
+  "appId": "ar.com.loginb",
+  "appName": "loginA",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

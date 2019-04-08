@@ -14,4 +14,19 @@
     <ion-input type="password" [(ngModel)]="password"  ></ion-input>
   </ion-item>
   <ion-button expand="block" (click)="OnSubmitLogin()" >Ingresar</ion-button>
+<!-- bloque de accesos rapidos -->
+<ion-list>
+  <ion-radio-group>
+    <ion-list-header>
+      Acceso rapido 
+    </ion-list-header>
+    
+    <ion-item *ngFor="let user of usersDefault">
+      <ion-label>{{ user.email }}</ion-label>
+      <ion-radio value="cord">{{ user.clave }}</ion-radio>
+    </ion-item>
+    
+    </ion-radio-group>
+</ion-list>
+
 </ion-content>

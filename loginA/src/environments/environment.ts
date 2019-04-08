@@ -15,9 +15,12 @@ export const firebaseConfig = {
   messagingSenderId: '165501539229'
 };
 
-export const defaultUser = {
-  email: 'admin@gmail.com',
-  password: '11111111'
+export const defaultUsers = {
+  { id: 1, email: 'admin@gmail.com', password: 11111111, perfil: 'admin', sexo: 'femenino' },
+{ id: 2, email: 'invitado@gmail.com', password: 22222222, perfil: 'invitado', sexo: 'femenino' },
+{ id: 3, email: 'usuario@gmail.com', password: 33333333, perfil: 'usuario', sexo: 'masculino' },
+{ id: 4, email: 'anonimo@gmail.com', password: 44444444, perfil: 'usuario', sexo: 'masculino' },
+{ id: 5, email: 'tester@gmail.com', password: 55555555, perfil: 'tester', sexo: 'femenino' }
 };
 /*
  * For easier debugging in development mode, you can import the following file
