@@ -1,0 +1,7 @@
+{
+  "name": "consorcium",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
