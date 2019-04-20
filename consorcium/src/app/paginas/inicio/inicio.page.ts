@@ -16,4 +16,11 @@ export class InicioPage implements OnInit {
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
   }
+
+  public subirFotoBuena() {
+      console.info('buena');
+  }
+  public subirFotoMala() {
+    console.info('mala');
+  }
 }
