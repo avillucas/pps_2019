@@ -1,0 +1,6 @@
+{
+  "appId": "io.consorcium",
+  "appName": "consorcium",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}
