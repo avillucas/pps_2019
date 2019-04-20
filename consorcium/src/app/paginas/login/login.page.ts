@@ -11,6 +11,8 @@ import { Usuario } from '../../clases/usuario';
 })
 export class LoginPage implements OnInit {
 
+  private static homePath = '/inicio';
+  private static ingresoPath = '/ingreso';
   public email: string;
   public password: string;
   public usuariosDefault: Array<Usuario>;
@@ -29,13 +31,13 @@ export class LoginPage implements OnInit {
 
   OnSubmitLogin() {
     this.authservice.login(this.email, this.password).then(res => {
-      this.router.navigate(['/inicio']);
+      this.router.navigate([LoginPage.homePath]);
     }).catch(err => alert('Los Datos son Incorrectos'));
   }
 
   public cerrarSesion() {
     this.authservice.logout().then(res => {
-      this.router.navigate(['/ingreso']);
+      this.router.navigate([LoginPage.ingresoPath]);
     }).catch(err => alert('Error al cerrar sesion'));
   }
 }
