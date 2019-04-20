@@ -14,8 +14,7 @@ export class AppComponent {
   public appPages = [
     { title: 'Inicio', url: '/inicio', icon: 'home' },
     { title: 'Lista', url: '/lista', icon: 'list' },
-    { title: 'Votacion', url: '/votacion', icon: 'trophy' },
-    { title: 'Cerrar Sesión', icon: 'log-out' }
+    { title: 'Votacion', url: '/votacion', icon: 'trophy' }
   ];
 
   constructor(
