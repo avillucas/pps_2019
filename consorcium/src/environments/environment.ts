@@ -1,3 +1,5 @@
+import { Usuario } from 'src/app/clases/usuario';
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
@@ -16,11 +18,11 @@ export const firebaseConfig = {
 };
 
 export const defaultUsers = [
-  { id: 1, email: 'admin@gmail.com',    password: '11111111', perfil: 'admin',    sexo: 'femenino'  },
-  { id: 2, email: 'invitado@gmail.com', password: '22222222', perfil: 'invitado', sexo: 'femenino'  },
-  { id: 3, email: 'usuario@gmail.com',  password: '33333333', perfil: 'usuario',  sexo: 'masculino' },
-  { id: 4, email: 'anonimo@gmail.com',  password: '44444444', perfil: 'usuario',  sexo: 'masculino' },
-  { id: 5, email: 'tester@gmail.com',   password: '55555555', perfil: 'tester',   sexo: 'femenino'  }
+  new Usuario(1, 'admin@gmail.com', '11111111', 'admin', 'femenino'),
+  new Usuario(2, 'invitado@gmail.com', '22222222', 'invitado', 'femenino'),
+  new Usuario(3, 'usuario@gmail.com', '33333333', 'usuario', 'masculino'),
+  new Usuario(4, 'anonimo@gmail.com', '44444444', 'usuario', 'masculino'),
+  new Usuario(5, 'tester@gmail.com', '55555555', 'tester', 'femenino')
 ];
 /*
  * For easier debugging in development mode, you can import the following file

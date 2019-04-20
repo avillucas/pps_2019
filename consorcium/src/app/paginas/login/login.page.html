@@ -20,9 +20,9 @@
       <ion-list-header>
         Acceso rapido
       </ion-list-header>
-      <ion-item *ngFor="let user of usuariosDefault">
-        <ion-label>{{ user.email }}</ion-label>
-        <ion-radio value="cord">{{ user.clave }}</ion-radio>
+      <ion-item *ngFor="let usuario of usuariosDefault">
+        <ion-label>{{ usuario.email }}</ion-label>
+        <ion-radio value="cord">{{ usuario.password }}</ion-radio>
       </ion-item>
     </ion-radio-group>
   </ion-list>
