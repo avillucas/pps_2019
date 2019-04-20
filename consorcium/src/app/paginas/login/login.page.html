@@ -16,13 +16,11 @@
   <ion-button expand="block" (click)="OnSubmitLogin()">Ingresar</ion-button>
   <!-- bloque de accesos rapidos -->
   <ion-list>
-    <ion-radio-group>
-      <ion-list-header>
-        Acceso rapido
-      </ion-list-header>
+    <ion-radio-group >
+      <ion-list-header>Acceso rapido</ion-list-header>
       <ion-item *ngFor="let usuario of usuariosDefault">
         <ion-label>{{ usuario.email }}</ion-label>
-        <ion-radio value="cord">{{ usuario.password }}</ion-radio>
+        <ion-radio (ionSelect)="OnAccesoRapido(usuario)" >{{ usuario.password }}</ion-radio>
       </ion-item>
     </ion-radio-group>
   </ion-list>

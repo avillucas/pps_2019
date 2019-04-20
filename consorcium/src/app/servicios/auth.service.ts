@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 
@@ -10,8 +11,12 @@ export class AuthService {
 
   login(email: string, password: string) {
     return new Promise((resolve, reject) => {
-      this.AFauth.auth.signInWithEmailAndPassword(email, password).then(user => {resolve(user); }).catch(err => reject(err));
+      this.AFauth.auth.signInWithEmailAndPassword(email, password).then(user => { resolve(user); }).catch(err => reject(err));
     });
+  }
+
+  logout() {
+    return this.AFauth.auth.signOut();
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../servicios/auth.service';
 import { defaultUsers } from '../../../environments/environment';
 import { Router } from '@angular/router';
@@ -11,11 +11,11 @@ import { Usuario } from '../../clases/usuario';
 })
 export class LoginPage implements OnInit {
 
-  email: string;
-  password: string;
-  usuariosDefault: Array<Usuario>;
+  public email: string;
+  public password: string;
+  public usuariosDefault: Array<Usuario>;
 
-  constructor(private authservice: AuthService, public router: Router, usuarios: Array<Usuario>) {
+  constructor(private authservice: AuthService, public router: Router) {
     this.usuariosDefault = defaultUsers;
   }
 
@@ -31,5 +31,11 @@ export class LoginPage implements OnInit {
     this.authservice.login(this.email, this.password).then(res => {
       this.router.navigate(['/inicio']);
     }).catch(err => alert('Los Datos son Incorrectos'));
+  }
+
+  public cerrarSesion() {
+    this.authservice.logout().then(res => {
+      this.router.navigate(['/ingreso']);
+    }).catch(err => alert('Error al cerrar sesion'));
   }
 }
