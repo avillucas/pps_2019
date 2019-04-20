@@ -3,6 +3,7 @@ import { AuthService } from '../../servicios/auth.service';
 import { defaultUsers } from '../../../environments/environment';
 import { Router } from '@angular/router';
 import { Usuario } from '../../clases/usuario';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -17,13 +18,17 @@ export class LoginPage implements OnInit {
   public password: string;
   public usuariosDefault: Array<Usuario>;
 
-  constructor(private authservice: AuthService, public router: Router) {
+  constructor(private authservice: AuthService, public router: Router, public menuCtrl: MenuController) {
     this.usuariosDefault = defaultUsers;
   }
 
   OnAccesoRapido(usuarioSeleccionado: Usuario) {
     this.email = usuarioSeleccionado.email;
     this.password = usuarioSeleccionado.password;
+  }
+
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
   }
 
   ngOnInit() {
@@ -35,9 +40,5 @@ export class LoginPage implements OnInit {
     }).catch(err => alert('Los Datos son Incorrectos'));
   }
 
-  public cerrarSesion() {
-    this.authservice.logout().then(res => {
-      this.router.navigate([LoginPage.ingresoPath]);
-    }).catch(err => alert('Error al cerrar sesion'));
-  }
+
 }

@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Router } from '@angular/router';
+import { AuthService } from './servicios/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,13 +15,15 @@ export class AppComponent {
     { title: 'Inicio', url: '/inicio', icon: 'home' },
     { title: 'Lista', url: '/lista', icon: 'list' },
     { title: 'Votacion', url: '/votacion', icon: 'trophy' },
-    { title: 'Cerrar sesión', url: '/salir', icon: 'exit' }
+    { title: 'Cerrar Sesión', icon: 'log-out' }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private router: Router,
+    private authservice: AuthService
   ) {
     this.initializeApp();
   }
@@ -29,5 +33,13 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  cerrarSesion() {
+    console.log('cerrando session');
+
+    this.authservice.logout().then(res => {
+      this.router.navigate(['/ingreso']);
+    }).catch(err => alert('Error al cerrar sesion'));
   }
 }
