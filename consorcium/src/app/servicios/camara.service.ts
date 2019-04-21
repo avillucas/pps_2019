@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +9,9 @@ export class CamaraService {
   constructor(private cameraPlugin: Camera) { }
 
   public tomarFoto() {
-    //opciones para la camara 
     const options: CameraOptions = {
       quality: 100,
-      targetHeight: 200,
-      targetWidth: 200,
-      destinationType: this.cameraPlugin.DestinationType.DATA_URL,
+      destinationType: this.cameraPlugin.DestinationType.FILE_URI,
       encodingType: this.cameraPlugin.EncodingType.JPEG,
       mediaType: this.cameraPlugin.MediaType.PICTURE
     };

@@ -18,7 +18,7 @@ export class InicioPage implements OnInit {
 
   constructor(public menuCtrl: MenuController, private Camara: CamaraService, private loadingCtrl: LoadingController) {
     this.mostrarSubirFoto = false;
-    firebase.initializeApp(firebaseConfig);
+    //firebase.initializeApp(firebaseConfig);
   }
 
   ngOnInit() {
@@ -50,9 +50,7 @@ export class InicioPage implements OnInit {
 
   upload() {
     if (this.selectedPhoto) {
-      var uploadTask = firebase.storage().ref().child('images/uploaded.png')
-        .put(this.selectedPhoto);
-      uploadTask.then(this.onSuccess, this.onError);
+      //var uploadTask = firebase.storage().ref().child('images/uploaded.png').put(this.selectedPhoto).then(this.onSuccess, this.onError);
     }
   }
 
