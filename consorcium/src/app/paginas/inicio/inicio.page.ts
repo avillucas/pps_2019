@@ -42,8 +42,8 @@ export class InicioPage implements OnInit {
   public SubirFoto() {
     this.Camara.tomarFoto().then((imagen) => {
       console.log(imagen);
-      this.loading = this.loadingCtrl.create();
-      this.loading.present();
+      //   this.loading = this.loadingCtrl.create();
+      //  this.loading.present();
       this.selectedPhoto = this.storage.DataURItoImageBlob(imagen);
       this.storage.Upload(this.selectedPhoto).then(this.onSuccess, this.onError);
     }, (err) => {
@@ -52,16 +52,23 @@ export class InicioPage implements OnInit {
   }
 
   onSuccess(snapshot) {
-    this.currentImage = snapshot.downloadURL;
-    this.loading.dismiss();
+    console.log(snapshot);
+  //  this.currentImage = snapshot.downloadURL;
+    //  this.loading.dismiss();
   }
 
   onError(error) {
     console.log("error", error);
-    this.loading.dismiss();
+    //   this.loading.dismiss();
+  }
+
+  private Test() {
+    this.selectedPhoto = this.storage.test();
+    this.storage.Upload(this.selectedPhoto).then(this.onSuccess).catch(this.onError);
   }
 
   public subirFotoBuena() {
+    this.Test();
     this.mostrarSubirFoto = true;
     console.info('buena');
   }

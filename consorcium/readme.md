@@ -16,5 +16,7 @@ https://www.javascripttuts.com/using-firebase-storage-in-ionic/
 https://ionicframework.com/docs/native/camera#installation
 #compilar para android
 ionic cordova build android
-#testear 
-ionic cordova run android --device
+#testear por usb encontrar los devices 
+adb devices -l devuelve el dispositivo 
+ionic cordova run android -l -c
+#para verlo  chrome://inspect 
