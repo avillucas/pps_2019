@@ -16,7 +16,8 @@
   <!-- -->
   <div padding text-center *ngIf="mostrarSubirFoto">
     <img src={{currentImage}} />
-    <button ion-button clear (click)="subirFoto()">Tomar Foto</button>
+    <ion-button expand="block" (click)="SubirFoto()">Tomar Foto</ion-button>
+    <ion-button expand="block" (click)="Volver()">Volver</ion-button>
   </div>
 
 </ion-content>

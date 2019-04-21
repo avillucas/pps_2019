@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { firebaseConfig } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { Camera } from '@ionic-native/camera/ngx';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { Camera } from '@ionic-native/camera/ngx';
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireStorageModule,
     AngularFireAuthModule,
   ],
   providers: [
