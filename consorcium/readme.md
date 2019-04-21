@@ -10,5 +10,9 @@ https://ionicframework.com/docs/building/android
 # ionic compilar en android 
 ionic cordoba build android 
 ionic cordova prepare android
-#upload de fotos 
+#upload de fotos  
 https://www.javascripttuts.com/using-firebase-storage-in-ionic/
+#plugin para la camara 
+https://ionicframework.com/docs/native/camera#installation
+#compilar para android
+ionic cordova build android
