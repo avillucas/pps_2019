@@ -35,8 +35,6 @@ export class AppComponent {
   }
 
   cerrarSesion() {
-    console.log('cerrando session');
-
     this.authservice.logout().then(res => {
       this.router.navigate(['/ingreso']);
     }).catch(err => alert('Error al cerrar sesion'));
