@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -13,10 +13,15 @@ import { firebaseConfig } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { Camera } from '@ionic-native/camera/ngx';
 
+
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -25,6 +30,7 @@ import { Camera } from '@ionic-native/camera/ngx';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireStorageModule,
     AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [
     StatusBar,
@@ -33,6 +39,7 @@ import { Camera } from '@ionic-native/camera/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

@@ -8,16 +8,16 @@ export class CamaraService {
 
   constructor(private cameraPlugin: Camera) { }
 
-  public tomarFoto() {
+  async  tomarFoto() {
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.cameraPlugin.DestinationType.FILE_URI,
+      destinationType: this.cameraPlugin.DestinationType.DATA_URL,
       encodingType: this.cameraPlugin.EncodingType.JPEG,
-      mediaType: this.cameraPlugin.MediaType.PICTURE
+      mediaType: this.cameraPlugin.MediaType.PICTURE,
+      sourceType: this.cameraPlugin.PictureSourceType.CAMERA
     };
     //
-    return this.cameraPlugin.getPicture(options);
+    return await this.cameraPlugin.getPicture(options);
   }
-
 
 }

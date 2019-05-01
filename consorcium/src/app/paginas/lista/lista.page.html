@@ -10,5 +10,28 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item *ngFor="let foto of fotos | async" inset="true">
+      <ion-img [src]="foto.path "></ion-img>
+      <span>{{ foto.owner }}</span> :{{ foto.creado.toDate('MM/dd/yyyy') }}
+    </ion-item>
+  </ion-list>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <!-- TODO revisar como ponerlo dentro del modulo de datos -->
+    <ion-img  *ngIf="foto"  [src]="foto"></ion-img>
+    <ng-container *ngIf="proceso | async as porcentaje">
+      <progress [value]="porcentaje" max="100"></progress>
+      <button ion-button (click)="tareaSubida.pause()">Pausar</button>
+      <button ion-button (click)="tareaSubida.resume()">Continuar</button>
+    </ng-container>
+    <ion-button expand="full" ion-button (click)="SubirFoto()"> Tomar una foto y subirla </ion-button>
+    <ion-button expand="full" (click)="Test()">TEST DE SUBIDA</ion-button>
+<!-- -->
+    
+
+    <ion-button expand="full" routerLink="/inicio">Volver</ion-button>    
+    <ion-button expand="full" (click)="traerUsuarioLogueado()">TEST Datos usuario</ion-button>    
+  </ion-toolbar>
+</ion-footer>

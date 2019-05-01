@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'ingreso', pathMatch: 'full' },
   { path: 'ingreso', loadChildren: './paginas/login/login.module#LoginPageModule', canActivate: [UnauthGuard] },
   { path: 'inicio', loadChildren: './paginas/inicio/inicio.module#InicioPageModule', canActivate: [AuthGuard] },
-  { path: 'lista', loadChildren: './paginas/lista/lista.module#ListaPageModule', canActivate: [AuthGuard] },
+  { path: 'lista/:buena', loadChildren: './paginas/lista/lista.module#ListaPageModule', canActivate: [AuthGuard] },
   { path: 'votacion', loadChildren: './paginas/votacion/votacion.module#VotacionPageModule', canActivate: [AuthGuard] },
   { path: '**', loadChildren: './paginas/error/error.module#ErrorPageModule' }
 ];

@@ -11,13 +11,17 @@
 
 <ion-content>
   <p>Mostranos los lugares que mas y menos te gustan del edificio</p>  
-  <ion-img  src="assets/store/edificio-up.svg"  (click)="subirFotoBuena()" expand="full"  *ngIf="!mostrarSubirFoto" ></ion-img>
-  <ion-img  src="assets/store/edificio-down.svg" (click)="subirFotoMala()"  expand="full"  *ngIf="!mostrarSubirFoto"  ></ion-img>
+  <ion-button routerLink="/lista/1" routerDirection="forward">
+    <ion-img  src="assets/store/edificio-up.svg"   expand="full"  ></ion-img>
+  </ion-button>
+  <ion-button routerLink="/lista/0" routerDirection="forward">
+    <ion-img  src="assets/store/edificio-down.svg"  expand="full"   ></ion-img>
+  </ion-button>
   <!-- -->
-  <div padding text-center *ngIf="mostrarSubirFoto">
-    <img src={{currentImage}} />
-    <ion-button expand="block" (click)="SubirFoto()">Tomar Foto</ion-button>
-    <ion-button expand="block" (click)="Volver()">Volver</ion-button>
+  <div padding text-center >
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
   </div>
 
 </ion-content>

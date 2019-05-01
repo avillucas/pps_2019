@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Usuario } from '../../clases/usuario';
 import { MenuController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',

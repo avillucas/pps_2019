@@ -1,38 +1,26 @@
 import { Injectable } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { imageUploadTest } from '../../environments/environment';
+import { finalize } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
 
+  constructor(private storage: AngularFireStorage) { }
 
-  constructor(private AStorage: AngularFireStorage) { }
+  task: AngularFireUploadTask;
+  image: string; // base64
 
   private generadorDeId() {
     return Math.random().toString(36).substring(2);
   }
 
-  public Upload(photoString) {
-    const filePath = this.generadorDeId() + '.jpg';
-    return this.AStorage.ref(filePath).put(photoString);
-  }
-
-  public test() {
-    return this.DataURItoBlob(imageUploadTest);
-  }
-
-  public DataURItoImageBlob(image) {
-    return this.DataURItoBlob('data:image/jpeg;base64,' + image);
-  }
-
-  public DataURItoBlob(dataURI) {
-    const binary = atob(dataURI.split(',')[1]);
-    const array = [];
-    for (let i = 0; i < binary.length; i++) {
-      array.push(binary.charCodeAt(i));
-    }
-    return new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
+  procesarSubida(fileBase64String: string): AngularFireUploadTask {
+    const filePath = 'foto-' + this.generadorDeId() + '.jpg';
+    this.image = 'data:image/jpg;base64,' + fileBase64String;
+    this.task = this.storage.ref(filePath).putString(this.image, 'data_url');
+    return this.task;
   }
 }
