@@ -1,0 +1,17 @@
+- Venimos solo a presentar 
+- No hay asistencia 
+- Requiere de mucha investigacion 
+- Se presentan en nuestro dispositivo y tiene que cumplir con los requerimientos minimos 
+- Primer parcial al menos 5 aplicaciones con mas aplicaciones 
+- El segundo parcial es con grupos de 3 personas , es un trabajo mas grande en el que los integrantes tengan delegacion de tareas , ese segundo parcial se le toma a los 3
+integrantes a la vez  , pero las notas son individuales
+- Teniendo el un Final se le agregaran contenidos .
+- La finalidad busca la colaboracion entre nosotros, por lo que se busca que generemos comunicacion para avanzar ya que varios van a tener que avanzar de esta manera . 
+- 
+
+APLICACIONES: 
+ - Ionic : https://ionicframework.com/
+ - Firebase : https://firebase.google.com/?hl=es-419
+ - Android Studio 
+ 
+ 
