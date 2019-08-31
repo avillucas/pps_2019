@@ -1,19 +1,17 @@
 
-import { Time } from '@angular/common';
-import {formatDate } from '@angular/common';
+import { FotoI } from '../modelos/foto.interface';
 
-export class Foto {
+export class Foto implements FotoI {
 
-    private path: string;
-    private owner: string;
-    private creado: Date;
-    private buena: boolean;
+    id?: string;
+    path: string;
+    owner: string;
+    creado: any = null;
+    buena: boolean;
 
-    constructor(path: string, owner: string,  buena: boolean) {
+    constructor(path: string, owner: string, buena: boolean) {
         this.path = path;
         this.owner = owner;
-        const  now = new Date();
-        this.creado = now;
         this.buena = buena;
     }
 }

@@ -1,6 +1,0 @@
-agregar plataformas 
-ionic cordova platform add android
-ionic cordova platform rm android
-ionic cordova resources
-ionic cordova build android
-ionic serve --local

@@ -9,6 +9,8 @@ import { CamaraService } from '../../servicios/camara.service';
 import { StorageService } from '../../servicios/storage.service';
 import { imageUploadTest } from '../../../environments/environment';
 import { AngularFireUploadTask } from '@angular/fire/storage';
+import * as firebase from 'firebase/app';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-lista',
@@ -20,16 +22,17 @@ export class ListaPage implements OnInit {
   private esBuena = false;
   //fotos de la lista
   public fotos: Observable<FotoI[]>;
-  foto: string;
   tareaSubida: AngularFireUploadTask;
   proceso: any;  // Observable 0 to 100
-
+  loading :any; // lleva el loading
+  
   constructor(
     private servicioFotos: FotosService,
     private activatedRoute: ActivatedRoute,
     private authservice: AuthService,
     private storage: StorageService,
-    private camara: CamaraService
+    private camara: CamaraService,
+    public loadingCtrl: LoadingController
   ) {
 
   }
@@ -37,15 +40,15 @@ export class ListaPage implements OnInit {
   carpturaFotoTerminada(event): void {
     console.log(event.url);
     const fotoUrl = event.imagenUrl;
-    const data = this.authservice.traerUsuarioLogueado();
-    const foto = new Foto(fotoUrl, data.email, this.esBuena);
-    this.servicioFotos.crearUna(foto);
+    const emailUsuario = this.authservice.usuarioActualEmail;
+    const foto = new Foto(fotoUrl, emailUsuario, this.esBuena);
+    this.servicioFotos.crear(foto);
   }
 
   //TODO limpiar esto despues del test
   traerUsuarioLogueado() {
-    const data = this.authservice.traerUsuarioLogueado();
-    console.log(data);
+    const email = this.authservice.usuarioActualEmail;
+    console.log(email);
 
   }
 
@@ -55,24 +58,28 @@ export class ListaPage implements OnInit {
   }
 
   async SubirFoto() {
-    this.foto = await this.camara.tomarFoto();
-    this.procesarSubida(this.foto);
+    const foto = await this.camara.tomarFoto();
+    this.procesarSubida(foto);
   }
 
   private async procesarSubida(base64Image: string) {
     this.tareaSubida = this.storage.procesarSubida(base64Image);
     this.proceso = this.tareaSubida.percentageChanges();
+    /**
+    this.tareaSubida.snapshotChanges(
+      firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshot)=>{console.log()},
+      (error)=>{console.log()},
+      ()=>{
+        this.capturarFotoTermina(snapshot.downloadLink);
+        console.log('finish')},
+      );
 
-    //TODO intentar determinar cuando termine   this.proceso.finalize(); para poder lanzar el evento emit y crear la fial 
-    //TODO conseguir informacion cuando termine 
-    let urlDescarga = '';
-    //disparar cuando termine 
-    //this.fotoTomada.emit({ imagenUrl: urlDescarga });
+    **/
   }
 
   async Test() {
-    this.foto = imageUploadTest;
-    this.procesarSubida(this.foto);
+    this.procesarSubida(imageUploadTest);
   }
 
 

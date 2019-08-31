@@ -20,3 +20,16 @@ ionic cordova build android
 adb devices -l devuelve el dispositivo 
 ionic cordova run android -l -c
 #para verlo  chrome://inspect 
+#agregar plataformas 
+ionic cordova platform add android
+ionic cordova platform rm android
+ionic cordova resources
+ionic cordova build android
+ionic serve --local
+
+
+#GUIAS
+*Debug:https://geeklearning.io/live-debug-your-cordova-ionic-application-with-visual-studio-code/  
+*Splash : Salir de un psd editarlo y sacar imagenes de  2208x2208  192x192
+#HERRAMIENTAS
+*Edición de imagen : https://www.photopea.com/  
